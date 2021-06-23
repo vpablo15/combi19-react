@@ -1,0 +1,10 @@
+.form-comentario form{
+    padding: 10px;
+}
+.form-comentario h3{
+    margin-bottom: 10px;
+}
+.form-comentario textarea{
+    width: 400px;
+    height: 90px;
+}

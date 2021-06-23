@@ -1,0 +1,106 @@
+.lista-comentarios{
+    padding: 20px;
+    list-style: none;
+}
+.lista-comentarios li{
+    border-radius: 5px;
+    background-color: hsl(219, 36%, 36%);
+    margin-bottom: 10px;
+    padding: 10px;
+}
+.lista-comentarios small{
+    font-family: monospace;
+}
+.lista-comentarios li p{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+#comentarios{
+    text-align: start;
+    font-size: 20px;
+    margin-left: 20px;
+}
+.pasajero-home{
+    color: white;
+}
+h1{
+    width: 100%;
+    text-align: start;
+    padding: 20px;
+}
+.destinos ul{
+    display: inline-flex;
+    list-style: none;
+    width: 100%;
+}
+.destinos li{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#imagen1 {
+    background-image: url("https://www.telam.com.ar/advf/imagenes/2020/10/5f8ec019e48a4_1004x565.jpg");
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+#imagen2 {
+    background-image: url("https://www.paititi.com.ar/notas/images/74_alquiler-CARLOS-PAZ.jpg");
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+#imagen3 {
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/5/5e/Llao_llao.jpg");
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+
+.item-destinos h4{
+    margin-top: 20px;
+    text-align: center;
+    font-size: 20px;
+    font-family:sans-serif;
+
+}
+.item-destinos{
+    width: 300px;
+    height: 400px;
+    background-color: #5E7BB2;
+    border-radius: 15px;
+}
+footer{
+    background-color: black;
+    height: 300px;
+}
+footer h3{
+    text-align: center;
+    font-family: Helvetica,Arial, sans-serif;
+}
+#contacto{
+    text-align: center;
+}
+footer ul{
+    width: 100%;
+    background-color: red;
+    display: inline-flexbox;
+
+}
+footer li{
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
