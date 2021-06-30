@@ -55,19 +55,13 @@ export const FormPasajero = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const nuevoPasajero = {
+    let nuevoPasajero = {
       nombre,
       apellido,
       dni: Number(dni),
       mail,
       contraseña,
       fechaDeNacimiento,
-      tarjeta:{
-        numero: Number(numero),
-        titular,
-        vencimiento:fechaVencimiento,
-        codigo:Number(codSeguridad)
-      },
       plan:false
     };
 
@@ -84,12 +78,19 @@ export const FormPasajero = ({
           handleClickOpen()
         } else {
           if(showFormPlanGold){
+            nuevoPasajero = {
+              ...nuevoPasajero,
+              tarjeta:{
+                numero: Number(numero),
+                titular,
+                vencimiento:fechaVencimiento,
+                codigo:Number(codSeguridad)
+              }
+            }
             const { valido,msg } = validarTarjeta(nuevoPasajero.tarjeta)
             if(valido){ 
               action({...nuevoPasajero,plan:true});
               agregarCertificacion({...nuevoPasajero,plan:true})
-              // setAlertMsg(msg)
-              // handleClickOpen()
               history.replace("/pasajero/home")
             }else{
               setAlertMsg(msg)
@@ -97,9 +98,7 @@ export const FormPasajero = ({
             }
           }else{
             action({...nuevoPasajero,tarjeta:{}});
-            agregarCertificacion(nuevoPasajero)
-            // setAlertMsg(msg)
-            // handleClickOpen()
+            agregarCertificacion(nuevoPasajero) //Podria agregar un efecto para cuando ingresa a la app
             history.replace("/pasajero/home")
           }         
         }
@@ -171,6 +170,7 @@ export const FormPasajero = ({
       };
     }
     const edad = calcularEdad(usuario.fechaDeNacimiento);
+    
     if (edad < 18) {
       return { valido: false, msg: "Debe ser mayor de 18 años" };
     }
@@ -323,7 +323,7 @@ export const FormPasajero = ({
               Ok
             </Button>
           </DialogActions>
-          </Dialog>
+        </Dialog>
     </div>
   );
 };

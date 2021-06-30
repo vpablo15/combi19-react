@@ -1,0 +1,105 @@
+.profile-screen{
+    font-family: Arial, Helvetica, sans-serif;
+    display: inline-flex;  
+}
+.datos-user{
+    background-color: #3D5671;
+    color: whitesmoke;
+    padding: 30px;
+    width: 300px;
+    border-radius: 20px;
+}
+.datos-user form{
+    margin-top: 20px;
+}
+.datos-user input{
+    width: 250px;
+    height: 25px;
+    border: 1px solid darkblue;
+    border-radius: 5px;
+}
+.premium-user{
+    color: whitesmoke;
+    width: 250px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 20px;
+    padding: 30px;
+    background-color: #3D5671;
+}
+.premium-user h2{
+    margin-bottom: 20px;
+}
+.premium-user h4{
+    margin-bottom: 20px;
+    background-color: whitesmoke;
+    width: 200px;
+    height: 40px;
+    text-align: center;
+    padding-top: 20px;
+    color: black;
+    border-radius: 3px;
+    border:3px solid black;
+}
+.premium-user h5 {
+    margin-top: 20px;
+    background-color: goldenrod;
+    width: 200px;
+    padding: 10px;
+    text-align: center;
+}
+.premium-user p {
+    padding: 5px;
+    margin-bottom: 5px;
+    color: orange;
+}
+
+.historial-user{
+    color: whitesmoke;
+}
+.historial-user h2{
+    margin: 10px;
+}
+.historial-user h4{
+    margin: 10px;
+}
+.viajes-list{
+  padding: 10px;
+  list-style: none;
+}
+.viajes-list li{
+  background-color: red;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: grey;
+}
+.opciones{
+    display: inline-flex;
+}
+.opciones select{
+    margin: 10px;
+    padding: 5px;
+}
+.perfil-user{
+    color: whitesmoke;
+    padding: 20px;
+    display: table-row;
+    justify-content: center;
+}
+
+.perfil-user h1{
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#perfil-image{
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    height: 200px;
+    background-image: url("../../assets/perfil.png");
+    background-size: contain;
+    border-radius: 50%;
+}

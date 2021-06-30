@@ -19,6 +19,9 @@ export const FormViaje = ({
   const [fecha, setFecha] = useState(new Date());
   // const [alertMsg, setAlertMsg] = useState("")
   let asientosMax = 0;
+  console.log('viajes',viajes)
+  console.log('rutas',rutas)
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -41,11 +44,13 @@ export const FormViaje = ({
         if (viajeBuscado[0] != null)
           alert("Ya se encuentra registrado un viaje con la misma fecha y ruta")
         else {
-          Number(cantidadAsientos) <= asientosMax
+          const { validate,msg } = validarDiaYHora(nuevoViaje)
+          if(validate){
+            Number(cantidadAsientos) <= asientosMax
             ? operacionExitosa(nuevoViaje)
-            : alert(
-                "No se puede superar la cantidad de asientos que tiene la combi"
-              );
+            : alert("No se puede superar la cantidad de asientos que tiene la combi");
+          }else
+            alert(msg)
         }
       } else {
         Number(cantidadAsientos) <= asientosMax
@@ -72,6 +77,56 @@ export const FormViaje = ({
   const handleInputChangeDate = (unaFecha) => {
     setFecha(unaFecha);
   };
+
+  const validarDiaYHora = ({ ruta, cantidadAsientos, fecha, precio }) => {
+    let msg = ''
+    let validate = true
+
+    const miRuta = rutas.filter(each => each.id === ruta)
+    const viajesEnElMismoDia = viajes.filter(viaje => 
+      viaje.ruta.combi.chofer === miRuta[0].combi.chofer && 
+      new Date(viaje.fecha).toLocaleDateString() === fecha.toLocaleDateString())
+
+    const horasNuevoViaje = miRuta[0].horario.split(" ")
+
+    console.log('viajes mismo dia',viajesEnElMismoDia)
+    console.log('mi ruta',miRuta)
+
+    let i = 0
+    while(viajesEnElMismoDia[i] !== null && msg === ''){
+
+        console.log('Vuelta ' + i)
+      
+         const horas = viajesEnElMismoDia[i].ruta.horario.split(" ")
+         if(!horasNuevoViaje[0] >= horas[0] && horasNuevoViaje[0] <= horas[2]){
+          if(!horasNuevoViaje[2] >= horas[0] && horasNuevoViaje[2] <= horas[2]){
+            if(horasNuevoViaje[2] <= horas[0]){
+              if(!ruta.destino.id === viajesEnElMismoDia[i].ruta.origen.id){
+                validate = false
+                msg = 'Hay incongruencia en el origen o destino' 
+              }
+            }else{
+              if(!ruta.origen.id === viajesEnElMismoDia[i].ruta.destino.id){
+                validate = false
+                msg = "Hay incongruencia en el origen o destino"
+              }
+            }
+          }else{
+            validate = false
+            console.log('deberia entrar aca')
+            msg = 'Existe un viaje con el mismo chofer o combi que coincide en fecha y rango horario'
+          }
+         }else{
+          validate = false
+          msg = 'Existe un viaje con el mismo chofer o combi que coincide en fecha y rango horario'
+         }
+    
+      i++      
+
+    }
+    return { validate,msg }
+
+  }
 
   const validarDatos = ({ ruta, cantidadAsientos, fecha, precio }) => {
     if (

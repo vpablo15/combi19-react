@@ -28,10 +28,6 @@ export const LoginScreen = ({ history }) => {
     listarChoferes().then((res) => setChoferes(res));
   }, []);
 
-  console.log(pasajeros)
-
-  //const userContext = useContext(UserContext);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     let user = {

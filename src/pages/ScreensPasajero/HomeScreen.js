@@ -18,7 +18,7 @@ import { buscarViajePasajeroPorId } from '../../controllers/ViajesPasajerosABM'
     useEffect(() => {
         listarComentarios().then((res) => setcomentarios(res))
         obtenerMisViajes()
-    })
+    },[])
 
     return (
          <div className="pasajero-home">

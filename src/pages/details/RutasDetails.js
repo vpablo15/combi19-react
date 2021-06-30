@@ -37,7 +37,7 @@ export const RutasDetails = ({
     };
     if (validarDatos(nuevaRuta)) {
       const rutaBuscada = rutas.filter((ruta) => ruta.origen.id === origen && ruta.destino.id === destino && ruta.combi.id === combi && ruta.horario === horario);
-      if(rutaBuscada[0] != null){
+      if(rutaBuscada[0] != null && rutaBuscada[0].id !== id){
          alert("Ya se encuentra una ruta con los mismos datos");
       }else{
         if (origen === destino) {
