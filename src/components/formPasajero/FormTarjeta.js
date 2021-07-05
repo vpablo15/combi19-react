@@ -48,6 +48,8 @@ export const FormTarjeta = ({
 
     const handleSubmitTarjeta = (e) => {
         e.preventDefault()
+        let tarjetaId = ""
+        if(user.tarjeta !== null) tarjetaId = user.tarjeta.id
         const nuevaTarjeta = {
             numero,
             titular,
@@ -66,13 +68,14 @@ export const FormTarjeta = ({
             }else{
                 action(user.id,usuarioActualizado).then(res => {
                     console.log(res)
+                    tarjetaId = res.tarjeta
                 }) 
             }
             localStorage.setItem('user',JSON.stringify({
                 ...user,
                 tarjeta:{
                     ...nuevaTarjeta,
-                    id:user.tarjeta.id,
+                    id:tarjetaId,
                 },
                 plan:true
             }))   
